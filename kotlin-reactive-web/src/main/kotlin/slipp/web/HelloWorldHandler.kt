@@ -1,4 +1,4 @@
-package reactiveweb
+package slipp.web
 
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono

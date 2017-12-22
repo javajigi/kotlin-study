@@ -1,4 +1,4 @@
-package reactiveweb
+package slipp.web
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -17,6 +17,17 @@ class RoutingConfiguration {
             GET("/helloworld2") { req ->
                 ServerResponse.ok().body(
                         handler.helloworld()
+                )
+            }
+        }
+    }
+
+    @Bean
+    fun routePerson(handler: PersonHandler): RouterFunction<ServerResponse> = router {
+        ("/users").nest {
+            GET("/{id}") { req ->
+                ServerResponse.ok().body(
+                        handler.show(req)
                 )
             }
         }

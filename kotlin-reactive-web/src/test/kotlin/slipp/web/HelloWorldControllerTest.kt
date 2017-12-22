@@ -1,6 +1,6 @@
-package reactiveweb
+package slipp.web
 
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,9 +21,10 @@ class HelloWorldControllerTest {
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .exchange()
                 .expectStatus().isOk
+                .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
                 .expectBody()
                 .consumeWith {
-                    Assertions.assertThat(String(it.responseBody)).isEqualTo("Hello World")
+                    assertThat(String(it.responseBody)).isEqualTo("Hello World")
                 }
     }
 
@@ -35,7 +36,7 @@ class HelloWorldControllerTest {
                 .expectStatus().isOk
                 .expectBody()
                 .consumeWith {
-                    Assertions.assertThat(String(it.responseBody)).isEqualTo("Hello World")
+                    assertThat(String(it.responseBody)).isEqualTo("Hello World")
                 }
     }
 }
