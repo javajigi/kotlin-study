@@ -1,4 +1,4 @@
-package net.slipp.kotlinweb
+package slipp
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController

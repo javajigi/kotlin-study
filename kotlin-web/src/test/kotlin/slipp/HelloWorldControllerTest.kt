@@ -1,4 +1,4 @@
-package net.slipp.kotlinweb
+package slipp
 
 import org.assertj.core.api.Assertions
 import org.junit.Test

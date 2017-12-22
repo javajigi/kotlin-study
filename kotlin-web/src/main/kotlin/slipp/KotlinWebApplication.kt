@@ -1,4 +1,4 @@
-package net.slipp.kotlinweb
+package slipp
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
