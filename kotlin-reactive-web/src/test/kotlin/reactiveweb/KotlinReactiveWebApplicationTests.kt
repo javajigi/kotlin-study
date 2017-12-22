@@ -1,4 +1,4 @@
-package net.slipp.kotlinreactiveweb
+package reactiveweb
 
 import org.junit.Test
 import org.junit.runner.RunWith

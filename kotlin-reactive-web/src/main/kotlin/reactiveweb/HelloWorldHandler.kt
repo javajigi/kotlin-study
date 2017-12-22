@@ -1,4 +1,4 @@
-package net.slipp.kotlinreactiveweb
+package reactiveweb
 
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono

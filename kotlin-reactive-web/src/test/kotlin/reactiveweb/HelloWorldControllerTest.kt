@@ -1,4 +1,4 @@
-package net.slipp.kotlinreactiveweb
+package reactiveweb
 
 import org.assertj.core.api.Assertions
 import org.junit.Test

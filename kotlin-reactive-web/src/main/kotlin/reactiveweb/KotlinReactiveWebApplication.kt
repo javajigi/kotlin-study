@@ -1,4 +1,4 @@
-package net.slipp.kotlinreactiveweb
+package reactiveweb
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
