@@ -2,6 +2,7 @@ package slipp.web
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.MediaType
 import org.springframework.web.reactive.config.EnableWebFlux
 import org.springframework.web.reactive.function.server.RouterFunction
 import org.springframework.web.reactive.function.server.ServerResponse
@@ -9,16 +10,22 @@ import org.springframework.web.reactive.function.server.body
 import org.springframework.web.reactive.function.server.router
 
 @Configuration
-@EnableWebFlux
 class RoutingConfiguration {
     @Bean
-    fun routeFunction(handler: HelloWorldHandler) : RouterFunction<ServerResponse> = router {
+    fun routeApiFunction(handler: HelloWorldHandler) : RouterFunction<ServerResponse> = router {
         ("/").nest {
-            GET("/helloworld2") { req ->
+            GET("/api/helloworld2") { req ->
                 ServerResponse.ok().body(
                         handler.helloworld()
                 )
             }
+        }
+    }
+
+    @Bean
+    fun routeFunction() : RouterFunction<ServerResponse> = router {
+        accept(MediaType.TEXT_HTML).nest {
+            GET("/helloworld") { ServerResponse.ok().render("helloworld") }
         }
     }
 

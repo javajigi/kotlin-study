@@ -17,7 +17,7 @@ class HelloWorldControllerTest {
 
     @Test
     fun helloWorld_annotation() {
-        client.get().uri("/helloworld1")
+        client.get().uri("/api/helloworld1")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .exchange()
                 .expectStatus().isOk
@@ -30,7 +30,7 @@ class HelloWorldControllerTest {
 
     @Test
     fun helloWorld_functional() {
-        client.get().uri("/helloworld2")
+        client.get().uri("/api/helloworld2")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .exchange()
                 .expectStatus().isOk

@@ -1,4 +1,4 @@
-package slipp
+package slipp.web
 
 import org.assertj.core.api.Assertions
 import org.junit.Test
@@ -11,19 +11,19 @@ import org.springframework.test.web.reactive.server.WebTestClient
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class HelloWorldControllerTest {
+class HtmlControllerTest {
     @Autowired
     lateinit var client: WebTestClient
 
     @Test
     fun helloworld() {
         client.get().uri("/helloworld")
-                .accept(MediaType.APPLICATION_JSON_UTF8)
+                .accept(MediaType.TEXT_HTML)
                 .exchange()
                 .expectStatus().isOk
                 .expectBody()
                 .consumeWith {
-                    Assertions.assertThat(String(it.responseBody)).isEqualTo("Hello World")
+                    println(String(it.responseBody))
                 }
     }
 }

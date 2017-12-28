@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono
 
 @RestController
 class HelloWorldController() {
-    @GetMapping("/helloworld1")
+    @GetMapping("/api/helloworld1")
     fun helloworld(): Mono<String> {
         return Mono.just("Hello World")
     }
