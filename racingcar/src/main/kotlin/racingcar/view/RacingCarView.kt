@@ -1,8 +1,8 @@
 package racingcar.view
 
-fun Int.repeat(status: String): String {
+fun String.repeat(no: Int): String {
     val sb = StringBuilder()
-    (0 until this).forEach { sb.append(status) }
+    (0 until no).forEach { sb.append(this) }
     return sb.toString();
 }
 
@@ -12,7 +12,7 @@ data class CarView(val name: String, val position: Int) {
     }
 
     override fun toString(): String {
-        return "$name : ${position.repeat("-")}"
+        return "$name : ${"-".repeat(position)}"
     }
 }
 
