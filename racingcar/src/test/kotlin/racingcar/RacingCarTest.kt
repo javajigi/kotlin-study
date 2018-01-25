@@ -13,7 +13,9 @@ class RacingCarTest {
                 Car("honux"),
                 Car("javajigi"))
         val racing = RacingCar(cars)
-        racing.move(5)
+        val racingCarView = racing.move(5)
+        println(racingCarView)
+        println("${racingCarView.winnersDisplayText()} 가 최종 우승했습니다.")
     }
 
     @Test

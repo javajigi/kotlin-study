@@ -14,7 +14,6 @@ class RacingCar(val cars: List<Car> = listOf()) {
         var movedCars = cars
         (1..tryNo).forEach {
             movedCars = movedCars.map { it.move(carRandom()) }
-            println(RacingCarView(movedCars.map { car -> CarView(car.name, car.position) }))
         }
         return RacingCarView(movedCars.map { car -> CarView(car.name, car.position) })
     }

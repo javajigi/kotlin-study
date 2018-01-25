@@ -17,6 +17,10 @@ data class CarView(val name: String, val position: Int) {
 }
 
 data class RacingCarView(val cars: List<CarView>) {
+    fun winnersDisplayText(): String {
+        return joinWinners(getWinners(cars))
+    }
+
     override fun toString(): String {
         val sb = StringBuilder()
         cars.forEach {
