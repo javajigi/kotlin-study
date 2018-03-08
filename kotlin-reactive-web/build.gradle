@@ -1,7 +1,7 @@
 buildscript {
 	ext {
 		kotlinVersion = '1.2.0'
-		springBootVersion = '2.0.0.M7'
+		springBootVersion = '2.0.0.RC1'
 	}
 	repositories {
 		mavenCentral()
@@ -31,18 +31,28 @@ compileTestKotlin {
 	kotlinOptions.jvmTarget = "1.8"
 }
 
+junitPlatform {
+	filters {
+		engines {
+			include 'spek'
+		}
+	}
+}
+
 repositories {
 	mavenCentral()
 	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
+	maven { url "http://dl.bintray.com/jetbrains/spek" }
 }
-
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-webflux')
 	compile('org.springframework.boot:spring-boot-starter-mustache')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
-	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.jetbrains.spek:spek-api:1.1.5')
+	testRuntime('org.jetbrains.spek:spek-junit-platform-engine:1.1.5')
 }

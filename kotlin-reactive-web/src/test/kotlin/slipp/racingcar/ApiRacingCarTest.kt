@@ -1,6 +1,6 @@
-package slipp.web
+package slipp.racingcar
 
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,35 +11,33 @@ import org.springframework.test.web.reactive.server.WebTestClient
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class HelloWorldControllerTest {
+class ApiRacingCarTest {
     @Autowired
     lateinit var client : WebTestClient
 
     @Test
-    fun helloWorld_annotation() {
-        client.post().uri("/aa", {
-            "name"
-        });
-        client.get().uri("/api/helloworld1")
+    fun move_stay() {
+        client.get().uri("/api/start?names=보라돌이")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .exchange()
                 .expectStatus().isOk
-                .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
                 .expectBody()
                 .consumeWith {
-                    assertThat(String(it.responseBody)).isEqualTo("Hello World")
+                    println("response : ${String(it.responseBody)}")
+                    Assertions.assertThat(String(it.responseBody)).contains("보라돌이")
                 }
     }
 
     @Test
-    fun helloWorld_functional() {
-        client.get().uri("/api/helloworld2")
+    fun move_forward() {
+        client.get().uri("/api/start?names=영미")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .exchange()
                 .expectStatus().isOk
                 .expectBody()
                 .consumeWith {
-                    assertThat(String(it.responseBody)).isEqualTo("Hello World")
+                    println("response : ${String(it.responseBody)}")
+                    Assertions.assertThat(String(it.responseBody)).contains("영미")
                 }
     }
 }

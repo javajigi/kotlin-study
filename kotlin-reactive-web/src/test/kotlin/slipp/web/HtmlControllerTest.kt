@@ -17,7 +17,19 @@ class HtmlControllerTest {
 
     @Test
     fun helloworld() {
-        client.get().uri("/helloworld")
+        client.get().uri("/helloworld?name=javajigi")
+                .accept(MediaType.TEXT_HTML)
+                .exchange()
+                .expectStatus().isOk
+                .expectBody()
+                .consumeWith {
+                    println(String(it.responseBody))
+                }
+    }
+
+    @Test
+    fun helloworld2() {
+        client.get().uri("/helloworld2?name=javajigi")
                 .accept(MediaType.TEXT_HTML)
                 .exchange()
                 .expectStatus().isOk
