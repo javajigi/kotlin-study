@@ -13,7 +13,7 @@ buildscript {
 
 apply plugin: 'kotlin'
 
-group = 'kr.codesquad'
+group = 'camp.nextstep'
 version = '1.0.0'
 sourceCompatibility = 1.8
 compileKotlin {
@@ -32,7 +32,6 @@ compileTestKotlin {
 repositories {
     mavenCentral()
 }
-
 
 dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
