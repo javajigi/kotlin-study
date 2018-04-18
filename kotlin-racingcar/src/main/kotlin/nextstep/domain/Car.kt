@@ -1,4 +1,4 @@
-package racingcar
+package nextstep.domain
 
 class Car(val name: String, val position: Int = 0) {
     fun move(randomValue: Int): Car {
@@ -7,6 +7,10 @@ class Car(val name: String, val position: Int = 0) {
         }
 
         return this
+    }
+
+    fun matchPosition(maxPosition: Int): Boolean {
+        return this.position == maxPosition
     }
 
     override fun equals(other: Any?): Boolean {

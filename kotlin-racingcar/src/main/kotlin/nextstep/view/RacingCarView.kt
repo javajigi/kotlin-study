@@ -1,4 +1,4 @@
-package racingcar.view
+package nextstep.view
 
 infix fun String.repeat(no: Int): String {
     val sb = StringBuilder()
@@ -29,18 +29,14 @@ infix fun String.repeatBuildString(no: Int): String {
 }
 
 data class CarView(val name: String, val position: Int) {
-    fun matchPosition(maxPosition: Int): Boolean {
-        return this.position == maxPosition
-    }
-
     override fun toString(): String {
         return "$name : ${"-".repeatBuildString(position)}"
     }
 }
 
-data class RacingCarView(val cars: List<CarView>) {
+data class RacingCarView(val cars: List<CarView>, val winnerCars: List<CarView>) {
     fun winnersDisplayText(): String {
-        return joinWinners(getWinners(cars))
+        return joinWinners(winnerCars)
     }
 
     override fun toString(): String {
@@ -53,14 +49,6 @@ data class RacingCarView(val cars: List<CarView>) {
     }
 
     companion object {
-        fun getWinners(cars: List<CarView>): List<CarView> {
-            if (cars.isEmpty()) {
-                return cars;
-            }
-            val maxPosition = cars.maxBy { it.position }!!.position
-            return cars.filter { car -> car.matchPosition(maxPosition) }
-        }
-
         fun joinWinners(winners: List<CarView>): String {
             return winners.map { it.name }.joinToString(", ")
         }

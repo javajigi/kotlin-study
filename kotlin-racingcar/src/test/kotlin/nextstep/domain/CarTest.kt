@@ -1,4 +1,4 @@
-package racingcar
+package nextstep.domain
 
 import org.assertj.core.api.Assertions.assertThat
 import org.jetbrains.spek.api.Spek
