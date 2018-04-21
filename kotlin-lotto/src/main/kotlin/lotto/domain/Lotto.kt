@@ -1,8 +1,10 @@
 package lotto.domain
 
+private val LOTTO_SIZE = 6
+
 class Lotto (val lotto: Set<Int>) {
     init {
-        if (lotto.size != 6) {
+        if (lotto.size != LOTTO_SIZE) {
             throw IllegalArgumentException()
         }
     }

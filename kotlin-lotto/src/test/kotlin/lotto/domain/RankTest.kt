@@ -31,4 +31,11 @@ object RankTest : Spek ({
             assertThat(Rank.valueOf(2)).isEqualTo(Rank.NONE)
         }
     }
+
+    describe("수익금") {
+        it ("3장의 5등 수익금") {
+            val winningMoney = Rank.FIFTH.winningMoney(3)
+            assertThat(winningMoney).isEqualTo(15_000)
+        }
+    }
 })
