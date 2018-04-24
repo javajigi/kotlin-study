@@ -8,6 +8,10 @@ import org.jetbrains.spek.api.dsl.it
 
 object LottoTest : Spek({
     describe("로또") {
+        it("comma로 생성") {
+            assertThat(Lotto(setOf(1, 2, 3, 4, 5, 6))).isEqualTo(Lotto("1,2,3,4,5,6"))
+        }
+
         it("유효한 로또") {
             Lotto(setOf(1, 2, 3, 4, 5, 6))
         }
